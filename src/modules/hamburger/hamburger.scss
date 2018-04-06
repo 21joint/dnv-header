@@ -1,0 +1,49 @@
+$hamburger-prefix: 'icon' !default;
+$open-classname: #{$prefix}#{'-nav--open'} !default;
+
+.#{$hamburger-prefix}-hamburger {
+  margin: 9px 0 0
+}
+
+.#{$hamburger-prefix}-hamburger, .#{$hamburger-prefix}-hamburger:after, .#{$hamburger-prefix}-hamburger:before {
+  position: relative;
+  display: inline-block;
+  width: 21px;
+  height: 2px;
+  background: #ecf0f1;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .15);
+  transition: background .2s .5s ease
+}
+
+.#{$hamburger-prefix}-hamburger:after, .#{$hamburger-prefix}-hamburger:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  transition: top .2s .5s ease, transform .2s ease
+}
+
+.#{$hamburger-prefix}-hamburger:before {
+  top: -7px
+}
+
+.#{$hamburger-prefix}-hamburger:after {
+  top: 7px
+}
+
+.#{$open-classname} .#{$hamburger-prefix}-hamburger {
+  background: 0 0;
+  box-shadow: none
+}
+
+.#{$open-classname} .#{$hamburger-prefix}-hamburger:after, .#{$open-classname} .#{$hamburger-prefix}-hamburger:before {
+  top: 0;
+  transition: top .2s ease, transform .2s .5s ease
+}
+
+.#{$open-classname} .#{$hamburger-prefix}-hamburger:before {
+  transform: rotate(45deg)
+}
+
+.#{$open-classname} .#{$hamburger-prefix}-hamburger:after {
+  transform: rotate(-45deg)
+}

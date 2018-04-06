@@ -1,0 +1,136 @@
+@font-face {
+  font-family: 'sv-Climacons';
+  src:url('./sv_climacons_webfont.eot');
+  src:url('./sv_climacons_webfont.eot?#iefix') format('embedded-opentype'),
+  url('./sv_climacons_webfont.svg#Climacons-Font') format('svg'),
+  url('./sv_climacons_webfont.woff') format('woff'),
+  url('./sv_climacons_webfont.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+.climacon:before{
+  font-family: 'sv-climacons';
+  speak: none;
+  font-size: inherit;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+}
+
+.climacon.i26:before {
+  content: "\e000";
+}
+
+.climacon.i28:before,
+.climacon.i30:before,
+.climacon.i44:before {/*cloud sun / partly cloudy day*/
+  content: "\e001";
+}
+
+.climacon.i29:before,
+.climacon.i27:before {/*cloud moon / partly cloudy (night)*/
+  content: "\e002";
+}
+
+.climacon.i9:before,
+.climacon.i11:before,
+.climacon.i12:before,
+.climacon.i40:before {/*rain cloud*/
+  content: "\e003";
+}
+
+.climacon.i32:before,
+.climacon.i34:before {
+  content: "\e028";
+}
+
+.climacon.i3200:before {
+  content: "\00d8";
+  font-weight: 700;
+}
+
+.climacon.i8:before,
+.climacon.i10:before
+{
+  content: "\e00c";
+}
+
+.climacon.i6:before,
+.climacon.i7:before,
+.climacon.i18:before {
+  content: "\e010";
+}
+
+.climacon.i17:before,
+.climacon.i35:before {
+  content: "\e013";
+}
+
+.climacon.i5:before{
+  content: "\e004";
+}
+
+.climacon.i13:before,
+.climacon.i14:before,
+.climacon.i15:before,
+.climacon.i16:before,
+.climacon.i41:before,
+.climacon.i42:before,
+.climacon.i43:before,
+.climacon.i46:before{
+  content: "\e018";
+}
+
+.climacon.i20:before {
+  content: "\e01b";
+}
+
+.climacon.i21:before,
+.climacon.i22:before,
+.climacon.i23:before {
+  content: "\e01f";
+}
+
+.climacon.i24:before {
+  content: "\e021";
+}
+
+.climacon.i2:before {
+  content: "\e022";
+}
+
+.climacon.i19:before {
+  content: "\e023";
+}
+
+.climacon.i3:before,
+.climacon.i4:before,
+.climacon.i37:before,
+.climacon.i38:before,
+.climacon.i39:before,
+.climacon.i45:before,
+.climacon.i47:before{
+  content: "\e025";
+}
+
+.climacon.i31:before,
+.climacon.i33:before {
+  content: "\e02d";
+}
+
+.climacon.i0:before {
+  content: "\e037";
+}
+
+.climacon.i25:before {
+  content: "\e03a";
+}
+
+.climacon.i36:before {
+  content: "\e03d";
+}
+
+.climacon.i1:before {
+  content: "\e00a";
+}

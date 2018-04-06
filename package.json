@@ -1,0 +1,60 @@
+{
+  "name": "webpack-frontend",
+  "version": "1.0.0",
+  "description": "Webpack Static Frontend Boilerplate",
+  "main": "index.js",
+  "scripts": {
+    "dev": "cross-env NODE_ENV=dev webpack-dev-server --progress --mode development --config webpack.config.dev.js",
+    "build": "webpack -p --progress --mode production --config webpack.config.build.js"
+  },
+  "dependencies": {
+    "jquery": "^3.3.1",
+    "bootstrap-sass": "latest"
+  },
+  "devDependencies": {
+    "babel": "^6.23.0",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.6.1",
+    "clean-webpack-plugin": "^0.1.19",
+    "copy-webpack-plugin": "^4.5.1",
+    "cross-env": "^5.1.4",
+    "css-loader": "^0.28.11",
+    "cssnano": "^3.10.0",
+    "file-loader": "^1.1.11",
+    "glob": "^7.1.2",
+    "html-webpack-plugin": "^3.1.0",
+    "imports-loader": "^0.8.0",
+    "node-sass": "^4.8.3",
+    "postcss-loader": "^2.1.3",
+    "sass-loader": "^6.0.7",
+    "style-loader": "^0.20.3",
+    "url-loader": "^1.0.1",
+    "webpack": "^4.4.1",
+    "webpack-cli": "^2.0.13",
+    "webpack-dashboard": "^1.1.1",
+    "webpack-dev-server": "^3.1.1",
+    "webpack-merge": "^4.1.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/21joint/webpack-frontend.git"
+  },
+  "keywords": [
+    "webpack",
+    "frontend",
+    "static",
+    "html",
+    "scss",
+    "css",
+    "boilerplace",
+    "21",
+    "joint"
+  ],
+  "author": "Levon Grigoryan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/21joint/webpack-frontend/issues"
+  },
+  "homepage": "https://github.com/21joint/webpack-frontend#readme"
+}

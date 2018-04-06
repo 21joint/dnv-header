@@ -1,0 +1,7 @@
+$icomoon-font-path: '/assets/fonts';
+$bootstrap-sass-asset-helper: true;
+$icon-font-path: if($bootstrap-sass-asset-helper, "bootstrap/", "fonts/");
+
+
+$purple: #7c222a;
+$purple-hover: #631b21;

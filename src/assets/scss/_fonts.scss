@@ -1,0 +1,28 @@
+//ProximaNova
+
+@font-face {
+  font-family: 'ProximaNova';
+  src: url('/fonts/ProximaNova-Reg/ProximaNova-Reg-webfont.eot'),
+  url('/fonts/ProximaNova-Reg/ProximaNova-Reg-webfont.woff') format('woff'),
+  url('/fonts/ProximaNova-Reg/ProximaNova-Reg-webfont.ttf') format('truetype'),
+  url('/fonts/ProximaNova-Reg/ProximaNova-Reg-webfont.svg#ProximaNova-Regular') format('svg'),
+  url('/fonts/ProximaNova-Reg/ProximaNova-Reg-webfont.eot?#iefix') format('embedded-opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+//Lustria
+
+@font-face {
+  font-family: 'Lustria';
+  src: url('/fonts/Lustria/Lustria-Regular.eot');
+  src: url('/fonts/Lustria/Lustria-Regular.eot?#iefix') format('embedded-opentype'),
+  url('/fonts/Lustria/Lustria-Regular.woff2') format('woff2'),
+  url('/fonts/Lustria/Lustria-Regular.woff') format('woff'),
+  url('/fonts/Lustria/Lustria-Regular.ttf') format('truetype'),
+  url('/fonts/Lustria/Lustria-Regular.svg#Lustria-Regular') format('svg');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@import "../fonts/FuturaPT/stylesheet.css";

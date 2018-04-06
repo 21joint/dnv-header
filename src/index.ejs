@@ -1,0 +1,70 @@
+<% const cssPrefix = htmlWebpackPlugin.options.prefix %>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, width=device-width">
+    <title><%= htmlWebpackPlugin.options.appTitle %></title>
+</head>
+<body>
+<header class="<%= cssPrefix %>-header">
+    <div class="<%= cssPrefix %>-header"></div>
+    <div class="container-fluid h-100">
+        <div class="flex-row justify-content-between h-100">
+            <div class="flex-col align-self-center">
+                <a href="https://www.denver.org/">
+                    <img class="<%= cssPrefix %>-logo img-responsive" src="../images/<%= cssPrefix %>-logo.svg"
+                         alt="">
+                </a>
+            </div>
+            <div class="flex-col-auto ml-auto align-self-center visible-md visible-lg">
+                <nav class="<%= cssPrefix %>-top--nav text-right">
+                    <ul class="m-0 p-0">
+                        <li><a href="https://www.denver.org/denver-meetings-conventions/" target="_blank"
+                               title="Meetings">MEETINGS
+                            </a></li>
+                        <li><a href="https://www.denver.org/weddings/" target="_blank" title="Weedings">WEDDINGS
+                            </a></li>
+                        <li><a href="https://www.denver.org/groups/" target="_blank" title="Groups">GROUPS
+                            </a></li>
+                        <li><a href="https://www.denver.org/travel-trade/" target="_blank" title="Travel Trade">TRAVEL TRADE
+                            </a></li>
+                        <li><a href="https://www.denver.org/sports-commission/"
+                               target="_blank"
+                               title="Sports Commission">SPORTS COMMISSION
+                            </a></li>
+                        <li><a href="https://www.denver.org/partners/" target="_blank" title="Partners">PARTNERS
+                            </a></li>
+                        <li><a href="https://www.denver.org/media/" class="pr-0" target="_blank" title="Media">MEDIA
+                            </a></li>
+                    </ul>
+                </nav>
+                <nav class="<%= cssPrefix %>-bottom--nav">
+                    <ul class="m-0 p-0">
+                        <li><a href="https://www.denver.org/things-to-do/" target="_blank" title="Things to do">THINGS
+                                TO DO</a></li>
+                        <li><a href="https://www.denver.org/events/" target="_blank" title="Events">EVENTS</a></li>
+                        <li><a href="https://www.denver.org/denver-hotels/" target="_blank" title="Hotels">HOTELS</a>
+                        </li>
+                        <li><a href="https://www.denver.org/restaurants/" target="_blank" title="Restaurants">RESTAURANTS</a>
+                        </li>
+                        <li><a href="https://www.denver.org/about-denver/" target="_blank" title="About Denver">ABOUT
+                                DENVER</a></li>
+                        <li><a href="https://www.denver.org/blog/" class="pr-0" target="_blank" title="Blog">BLOG</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="flex-col-auto ml-auto align-self-center visible-xs visible-sm">
+                <button id="dLabel" aria-expanded="false" data-toggle="dropdown" aria-haspopup="true">MENU</button>
+                <ul class="dropdown-menu" aria-labelledby="dLabel">
+                    <li>kjbnhb</li>
+                    <li>njm</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</header>
+</body>
+</html>

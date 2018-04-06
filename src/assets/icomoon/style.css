@@ -1,0 +1,68 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  url('fonts/icomoon.eot?hy8nxx');
+  src:  url('fonts/icomoon.eot?hy8nxx#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?hy8nxx') format('truetype'),
+    url('fonts/icomoon.woff?hy8nxx') format('woff'),
+    url('fonts/icomoon.svg?hy8nxx#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-wbk:before {
+  content: "\e900";
+}
+.icon-search2:before {
+  content: "\e905";
+}
+.icon-you:before {
+  content: "\e901";
+}
+.icon-search:before {
+  content: "\e902";
+}
+.icon-blog:before {
+  content: "\e903";
+}
+.icon-book:before {
+  content: "\e904";
+}
+.icon-clear-x:before {
+  content: "\e906";
+}
+.icon-fb:before {
+  content: "\e907";
+}
+.icon-flik:before {
+  content: "\e908";
+}
+.icon-insta:before {
+  content: "\e909";
+}
+.icon-meetings:before {
+  content: "\e90a";
+}
+.icon-pint:before {
+  content: "\e90b";
+}
+.icon-tw:before {
+  content: "\e90d";
+}
+.icon-menu:before {
+  content: "\e90c";
+}

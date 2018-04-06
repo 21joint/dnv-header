@@ -1,0 +1,103 @@
+@import "variables";
+
+@font-face {
+  font-family: 'icomoon';
+  src:  url('#{$icomoon-font-path}/icomoon.eot?hy8nxx');
+  src:  url('#{$icomoon-font-path}/icomoon.eot?hy8nxx#iefix') format('embedded-opentype'),
+    url('#{$icomoon-font-path}/icomoon.ttf?hy8nxx') format('truetype'),
+    url('#{$icomoon-font-path}/icomoon.woff?hy8nxx') format('woff'),
+    url('#{$icomoon-font-path}/icomoon.svg?hy8nxx#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@function unicode($str) {
+  @return unquote("\"") + $str + unquote("\"");
+}
+
+.icon-wbk {
+  &:before {
+    content: unicode($icon-wbk); 
+  }
+}
+.icon-search2 {
+  &:before {
+    content: unicode($icon-search2); 
+  }
+}
+.icon-you {
+  &:before {
+    content: unicode($icon-you); 
+  }
+}
+.icon-search {
+  &:before {
+    content: unicode($icon-search); 
+  }
+}
+.icon-blog {
+  &:before {
+    content: unicode($icon-blog); 
+  }
+}
+.icon-book {
+  &:before {
+    content: unicode($icon-book); 
+  }
+}
+.icon-clear-x {
+  &:before {
+    content: unicode($icon-clear-x); 
+  }
+}
+.icon-fb {
+  &:before {
+    content: unicode($icon-fb); 
+  }
+}
+.icon-flik {
+  &:before {
+    content: unicode($icon-flik); 
+  }
+}
+.icon-insta {
+  &:before {
+    content: unicode($icon-insta); 
+  }
+}
+.icon-meetings {
+  &:before {
+    content: unicode($icon-meetings); 
+  }
+}
+.icon-pint {
+  &:before {
+    content: unicode($icon-pint); 
+  }
+}
+.icon-tw {
+  &:before {
+    content: unicode($icon-tw); 
+  }
+}
+.icon-menu {
+  &:before {
+    content: unicode($icon-menu); 
+  }
+}
+
