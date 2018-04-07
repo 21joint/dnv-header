@@ -1,6 +1,4 @@
 const path = require('path');
-const fetchFavicons = require('@meltwater/fetch-favicon').fetchFavicons;
-
 
 let conf;
 
@@ -15,11 +13,7 @@ conf = {
   dirImages: path.join(__dirname, 'src/images'),
 };
 
-// conf.favicons = fetchFavicons(conf.originUrl, function(res) {
-//   console.log(res);
-//   return res;
-// });
 
-// console.log(conf);
+console.log(conf);
 
 module.exports = conf;

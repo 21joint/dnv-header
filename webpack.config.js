@@ -1,19 +1,43 @@
 'use strict';
-const path = require('path');
-const conf = require('./conf');
-const IS_DEV = (process.env.NODE_ENV === 'dev');
 const webpack = require('webpack');
+const path = require('path');
+
+// * * configuration/structure/folders * * //
+const conf = require('./conf');
+
+// running 'npm run build' makes this variable false
+const IS_DEV = (process.env.NODE_ENV === 'dev');
+
+// ** glob is a plugin to loop through multiple templates **//
 const glob = require('glob');
+
+// ** Sass Autoprefixer **//
 const autoprefixer = require('autoprefixer');
+
+//** HtmlWebpackPlugin compatible with latest webpack 4.4.1, for generating result html **//
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+// * * ExtractText plugin compatible with latest webpack 4.4.1, to play with strings * * //
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+
+/* To Inject Inline Stylesheet into the Html if needed */
+const StyleExtHtmlWebpackPlugin = require('style-ext-html-webpack-plugin');
+
+// * * Transforms <img src="*.svg"> to inline <svg> (svgo options are present) * * //
 const HtmlWebpackInlineSVGPlugin = require('html-webpack-inline-svg-plugin');
 
+/**
+ * Helper function to get *.ejs filename when looping, which
+ * returns '[name].ejs' as string
+ **/
 const getNameFromDir = (dir) => {
   const lastSlash = dir.lastIndexOf('/');
   return dir.slice(lastSlash + 1);
 };
 
+/**
+ * Function to loop through all templates/files (*.ejs)
+ */
 const generateHTMLPlugins = () =>
     glob.sync('./src/*.ejs').map(function(dir) {
       return new HtmlWebpackPlugin({
@@ -25,6 +49,10 @@ const generateHTMLPlugins = () =>
  * Webpack Configuration
  */
 module.exports = {
+  target: 'web',
+  node: {
+    fs: 'empty',
+  },
   entry: {
     vendor: path.join(conf.dirSrc, 'scripts/vendor.js'),
     common: path.join(conf.dirSrc, 'scripts/common.js'),
@@ -37,6 +65,8 @@ module.exports = {
     modules: [
       conf.dirSrc,
       conf.dirNode,
+      conf.dirImages,
+      conf.dirFonts,
     ],
     alias: {
       '@': path.resolve(__dirname, 'node_modules'),
@@ -53,6 +83,7 @@ module.exports = {
       // SCSS
       {
         test: /\.scss$/,
+        exclude: /(node_modules)/,
         use: ExtractTextPlugin.extract({
           use: [
             {
@@ -65,8 +96,8 @@ module.exports = {
               loader: 'resolve-url-loader',
               options: {
                 sourceMap: IS_DEV,
-                root: conf.dirSrc
-              }
+                root: conf.dirSrc,
+              },
             },
             {
               loader: 'postcss-loader',
@@ -87,14 +118,14 @@ module.exports = {
           fallback: {
             loader: 'style-loader',
           },
-          publicPath: '/'
+          publicPath: '/headers/denver/',
         }),
       },
       // IMAGES
       {
         test: /\.(gif|png|jpe?g)/,
         loader: 'file-loader',
-        include: conf.dirSrc,
+        exclude: /(node_modules)/,
         options: {
           name: '[name].[ext]',
           outputPath: './images/',
@@ -104,7 +135,7 @@ module.exports = {
       {
         test: /\.(ttf|eot|woff|woff2|svg)/,
         loader: 'file-loader',
-        include: conf.dirSrc,
+        exclude: /(node_modules)/,
         options: {
           name: '[name].[ext]',
           outputPath: './fonts/',
@@ -131,4 +162,5 @@ module.exports = {
   stats: {
     colors: true,
   },
+  devtool: 'eval',
 };
