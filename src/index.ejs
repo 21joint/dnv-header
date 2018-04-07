@@ -1,70 +1,126 @@
-<% const cssPrefix = htmlWebpackPlugin.options.prefix %>
+<%
+const conf = require('../conf.js');
+%>
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
     <meta name="viewport"
           content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, width=device-width">
-    <title><%= htmlWebpackPlugin.options.appTitle %></title>
+    <title><%= conf.appTitle %></title>
 </head>
 <body>
-<header class="<%= cssPrefix %>-header">
-    <div class="<%= cssPrefix %>-header"></div>
-    <div class="container-fluid h-100">
-        <div class="flex-row justify-content-between h-100">
-            <div class="flex-col align-self-center">
-                <a href="https://www.denver.org/">
-                    <img class="<%= cssPrefix %>-logo img-responsive" src="../images/<%= cssPrefix %>-logo.svg"
-                         alt="">
-                </a>
-            </div>
-            <div class="flex-col-auto ml-auto align-self-center visible-md visible-lg">
-                <nav class="<%= cssPrefix %>-top--nav text-right">
-                    <ul class="m-0 p-0">
-                        <li><a href="https://www.denver.org/denver-meetings-conventions/" target="_blank"
-                               title="Meetings">MEETINGS
-                            </a></li>
-                        <li><a href="https://www.denver.org/weddings/" target="_blank" title="Weedings">WEDDINGS
-                            </a></li>
-                        <li><a href="https://www.denver.org/groups/" target="_blank" title="Groups">GROUPS
-                            </a></li>
-                        <li><a href="https://www.denver.org/travel-trade/" target="_blank" title="Travel Trade">TRAVEL TRADE
-                            </a></li>
-                        <li><a href="https://www.denver.org/sports-commission/"
-                               target="_blank"
-                               title="Sports Commission">SPORTS COMMISSION
-                            </a></li>
-                        <li><a href="https://www.denver.org/partners/" target="_blank" title="Partners">PARTNERS
-                            </a></li>
-                        <li><a href="https://www.denver.org/media/" class="pr-0" target="_blank" title="Media">MEDIA
-                            </a></li>
-                    </ul>
-                </nav>
-                <nav class="<%= cssPrefix %>-bottom--nav">
-                    <ul class="m-0 p-0">
-                        <li><a href="https://www.denver.org/things-to-do/" target="_blank" title="Things to do">THINGS
-                                TO DO</a></li>
-                        <li><a href="https://www.denver.org/events/" target="_blank" title="Events">EVENTS</a></li>
-                        <li><a href="https://www.denver.org/denver-hotels/" target="_blank" title="Hotels">HOTELS</a>
-                        </li>
-                        <li><a href="https://www.denver.org/restaurants/" target="_blank" title="Restaurants">RESTAURANTS</a>
-                        </li>
-                        <li><a href="https://www.denver.org/about-denver/" target="_blank" title="About Denver">ABOUT
-                                DENVER</a></li>
-                        <li><a href="https://www.denver.org/blog/" class="pr-0" target="_blank" title="Blog">BLOG</a>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
-            <div class="flex-col-auto ml-auto align-self-center visible-xs visible-sm">
-                <button id="dLabel" aria-expanded="false" data-toggle="dropdown" aria-haspopup="true">MENU</button>
-                <ul class="dropdown-menu" aria-labelledby="dLabel">
-                    <li>kjbnhb</li>
-                    <li>njm</li>
-                </ul>
+    <header class="<%= conf.appPrefix %>-header">
+        <div class="<%= conf.appPrefix %>-header--main">
+            <div class="container-fluid h-100">
+                <div class="flex-row align-items-center justify-content-between h-100">
+                    <div class="flex-col-auto">
+                        <a class="<%= conf.appPrefix %>-logo" href="https://www.denver.org/"> <img
+                                    class="img-responsive" src="./src/images/<%= conf.appPrefix %>-logo.svg"
+                                    alt="<%= conf.appTitle %>"> <img
+                                    class="img-responsive <%= conf.appPrefix %>-logo--bg h-100"
+                                    src="./src/images/<%= conf.appPrefix %>-logo--background.png" alt=" "> </a>
+                    </div>
+                    <div class="flex-col ml-auto visible-md visible-lg text-right">
+                        <nav class="<%= conf.appPrefix %>-nav--secondary">
+                            <ul class="m-0 p-0">
+                                <li><a href="https://www.denver.org/denver-meetings-conventions/" target="_blank"
+                                       title="Meetings">MEETINGS</a></li>
+                                <li><a href="https://www.denver.org/weddings/" target="_blank"
+                                       title="Weedings">WEDDINGS</a>
+                                </li>
+                                <li><a href="https://www.denver.org/groups/" target="_blank" title="Groups">GROUPS</a>
+                                </li>
+                                <li><a href="https://www.denver.org/travel-trade/" target="_blank"
+                                       title="Travel Trade">TRAVEL TRADE</a></li>
+                                <li><a href="https://www.denver.org/sports-commission/" target="_blank"
+                                       title="Sports Commission">SPORTS COMMISSION </a></li>
+                                <li><a href="https://www.denver.org/partners/" target="_blank"
+                                       title="Partners">PARTNERS</a>
+                                </li>
+                                <li><a href="https://www.denver.org/media/" class="pr-0" target="_blank"
+                                       title="Media">MEDIA </a></li>
+                            </ul>
+                        </nav>
+                        <nav class="<%= conf.appPrefix %>-nav--primary">
+                            <ul class="m-0 p-0">
+                                <li><a href="https://www.denver.org/things-to-do/" target="_blank"
+                                       title="Things to do">THINGS TO DO</a></li>
+                                <li><a href="https://www.denver.org/events/" target="_blank" title="Events">EVENTS</a>
+                                </li>
+                                <li><a href="https://www.denver.org/denver-hotels/" target="_blank"
+                                       title="Hotels">HOTELS</a>
+                                </li>
+                                <li><a href="https://www.denver.org/restaurants/" target="_blank"
+                                       title="Restaurants">RESTAURANTS</a>
+                                </li>
+                                <li><a href="https://www.denver.org/about-denver/" target="_blank"
+                                       title="About Denver">ABOUT DENVER</a></li>
+                                <li><a href="https://www.denver.org/blog/" class="pr-0" target="_blank"
+                                       title="Blog">BLOG</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="flex-col-auto ml-auto visible-xs visible-sm position-static">
+                        <button class="btn <%= conf.appPrefix %>-menu--toggle"
+                                data-target="#<%= conf.appPrefix %>MobileMenu" aria-expanded="false"
+                                data-toggle="dropdown" aria-haspopup="true">MENU<i class="icon-hamburger"></i></button>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-</header>
+        <div class="dropdown <%= conf.appPrefix %>-header--mobile" id="<%= conf.appPrefix %>MobileMenu">
+            <div class="dropdown-menu dropdown-menu-right <%= conf.appPrefix %>-menu--dropdown p-0 m-0"
+                 aria-labelledby="menuToggle">
+                <nav class="<%= conf.appPrefix %>-mobilenav--primary">
+                    <ul class="p-0 m-0">
+                        <li><a class="btn btn-block text-left" target="_blank"
+                               href="<%= conf.baseUrl %>/things-to-do/">Things to Do</a></li>
+                        <li><a class="btn btn-block text-left" target="_blank"
+                               href="<%= conf.baseUrl %>/events/">Events</a></li>
+                        <li><a class="btn btn-block text-left" target="_blank"
+                               href="<%= conf.baseUrl %>/denver-hotels/">Hotels</a></li>
+                        <li><a class="btn btn-block text-left" target="_blank"
+                               href="<%= conf.baseUrl %>/restaurants/">Restaurants</a></li>
+                        <li><a class="btn btn-block text-left" target="_blank"
+                               href="<%= conf.baseUrl %>/about-denver/">About Denver</a></li>
+                        <li><a class="btn btn-block text-left" target="_blank" href="<%= conf.baseUrl %>/blog/">Blog</a>
+                        </li>
+                    </ul>
+                </nav>
+                <nav class="<%= conf.appPrefix %>-mobilenav--secondary">
+                    <ul class="p-0 flex-row no-gutters">
+                        <li class="flex-col-6"><a class="btn btn-block text-center" target="_blank"
+                                                  href="<%= conf.baseUrl %>/denver-meetings-conventions/">Meetings</a>
+                        </li>
+                        <li class="flex-col-6"><a class="btn btn-block text-center" target="_blank"
+                                                  href="<%= conf.baseUrl %>/weddings/">Weddings</a>
+                        </li>
+                        <li class="flex-col-6"><a class="btn btn-block text-center" target="_blank"
+                                                  href="<%= conf.baseUrl %>/groups/">Groups</a></li>
+                        <li class="flex-col-6"><a class="btn btn-block text-center" target="_blank"
+                                                  href="<%= conf.baseUrl %>/travel-trade/">Travel Trade</a></li>
+                        <li class="flex-col-6"><a class="btn btn-block text-center" target="_blank"
+                                                  href="<%= conf.baseUrl %>/sports-commission/">Sports Commission</a>
+                        </li>
+                        <li class="flex-col-6"><a class="btn btn-block text-center" target="_blank"
+                                                  href="<%= conf.baseUrl %>/partners/">Partners</a>
+                        </li>
+                        <li class="flex-col-6"><a class="btn btn-block text-center" target="_blank"
+                                                  href="<%= conf.baseUrl %>/media/">Media</a></li>
+                    </ul>
+                </nav>
+                <div class="mt-auto">
+                    <button type="button" class="btn btn-block <%= conf.appPrefix %>-mobilenav--close"
+                            data-target="#<%= conf.appPrefix %>MobileMenu" aria-expanded="false" data-toggle="dropdown"
+                            aria-haspopup="true"><img
+                                src="<%= conf.baseUrl %>/includes/public/assets/icons/misc/close-icon.png"
+                                alt="Close Menu">
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
 </body>
 </html>

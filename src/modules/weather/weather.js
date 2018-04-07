@@ -11,6 +11,8 @@ export default function(options) {
     if (res.status >= 400) {
       throw new Error('Bad response from server');
     }
-    return res.query.results ? res.query.results.channel.item.condition :  { code: 'NA', temp: 'NA' };;
+    return res.query.results ?
+        res.query.results.channel.item.condition :
+        {code: 'NA', temp: 'NA'};
   });
 }

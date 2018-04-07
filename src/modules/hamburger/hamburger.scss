@@ -1,49 +1,51 @@
-$hamburger-prefix: 'icon' !default;
-$open-classname: #{$prefix}#{'-nav--open'} !default;
+@import "./variables";
 
-.#{$hamburger-prefix}-hamburger {
-  margin: 9px 0 0
+
+
+.#{$hamburger-selector} {
+  font-size: 20px;
+
 }
 
-.#{$hamburger-prefix}-hamburger, .#{$hamburger-prefix}-hamburger:after, .#{$hamburger-prefix}-hamburger:before {
+.#{$hamburger-selector}, .#{$hamburger-selector}:after, .#{$hamburger-selector}:before {
   position: relative;
   display: inline-block;
-  width: 21px;
-  height: 2px;
-  background: #ecf0f1;
+  width: $bar-width;
+  height: $bar-height;
+  background: $bar-color;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .15);
-  transition: background .2s .5s ease
+  transition: background .1s .2s ease
 }
 
-.#{$hamburger-prefix}-hamburger:after, .#{$hamburger-prefix}-hamburger:before {
+.#{$hamburger-selector}:after, .#{$hamburger-selector}:before {
   content: '';
   position: absolute;
   left: 0;
-  transition: top .2s .5s ease, transform .2s ease
+  transition: top .1s .2s ease, transform .2s ease
 }
 
-.#{$hamburger-prefix}-hamburger:before {
-  top: -7px
+.#{$hamburger-selector}:before {
+  top: -$bar-spacing;
 }
 
-.#{$hamburger-prefix}-hamburger:after {
-  top: 7px
+.#{$hamburger-selector}:after {
+  top: $bar-spacing;
 }
 
-.#{$open-classname} .#{$hamburger-prefix}-hamburger {
+#{$open-classname} .#{$hamburger-selector} {
   background: 0 0;
   box-shadow: none
 }
 
-.#{$open-classname} .#{$hamburger-prefix}-hamburger:after, .#{$open-classname} .#{$hamburger-prefix}-hamburger:before {
+#{$open-classname} .#{$hamburger-selector}:after, #{$open-classname} .#{$hamburger-selector}:before {
   top: 0;
-  transition: top .2s ease, transform .2s .5s ease
+  transition: top .1s ease, transform .1s .2s ease
 }
 
-.#{$open-classname} .#{$hamburger-prefix}-hamburger:before {
+#{$open-classname} .#{$hamburger-selector}:before {
   transform: rotate(45deg)
 }
 
-.#{$open-classname} .#{$hamburger-prefix}-hamburger:after {
+#{$open-classname} .#{$hamburger-selector}:after {
   transform: rotate(-45deg)
 }

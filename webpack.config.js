@@ -1,19 +1,13 @@
-const config = require('./project.config');
+'use strict';
 const path = require('path');
-const webpack = require('webpack');
+const conf = require('./conf');
 const IS_DEV = (process.env.NODE_ENV === 'dev');
+const webpack = require('webpack');
+const glob = require('glob');
 const autoprefixer = require('autoprefixer');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-
-const extractSass = new ExtractTextPlugin({
-  filename: 'styles/[name].css',
-  disable: IS_DEV,
-});
-
-const glob = require('glob');
-// Is the current build a development build
+const HtmlWebpackInlineSVGPlugin = require('html-webpack-inline-svg-plugin');
 
 const getNameFromDir = (dir) => {
   const lastSlash = dir.lastIndexOf('/');
@@ -21,79 +15,86 @@ const getNameFromDir = (dir) => {
 };
 
 const generateHTMLPlugins = () =>
-    glob.sync(path.join(config.dirSrc, '*.ejs')).map(function(dir) {
+    glob.sync('./src/*.ejs').map(function(dir) {
       return new HtmlWebpackPlugin({
-        template: path.resolve(config.dirSrc, getNameFromDir(dir)),
-        prefix: 'wbv',
-        title: config.appTitle,
+        template: path.resolve(conf.dirSrc, getNameFromDir(dir)),
       });
-
     });
 
 /**
  * Webpack Configuration
  */
 module.exports = {
-  target: 'web',
   entry: {
-    vendor: path.join(config.dirSrc, 'scripts/vendor.js'),
-    common: path.join(config.dirSrc, 'scripts/common.js'),
+    vendor: path.join(conf.dirSrc, 'scripts/vendor.js'),
+    common: path.join(conf.dirSrc, 'scripts/common.js'),
+  },
+  output: {
+    path: path.join(__dirname, 'dist'),
+    filename: '[name].js',
   },
   resolve: {
     modules: [
-      config.dirNode,
-      config.dirSrc,
-      config.dirAssets
+      conf.dirSrc,
+      conf.dirNode,
     ],
+    alias: {
+      '@': path.resolve(__dirname, 'node_modules'),
+      '~': path.resolve(__dirname, 'node_modules'),
+    },
   },
   module: {
     rules: [
       {
         test: /\.js$/,
         exclude: /(node_modules)/,
-        loader: 'babel-loader'
+        loader: 'babel-loader',
       },
       // SCSS
       {
         test: /\.scss$/,
-        use: extractSass.extract({
+        use: ExtractTextPlugin.extract({
           use: [
             {
               loader: 'css-loader',
               options: {
-                sourceMap: IS_DEV ? true : 'inline'
+                sourceMap: IS_DEV,
+              },
+            },
+            {
+              loader: 'resolve-url-loader',
+              options: {
+                sourceMap: IS_DEV,
+                root: conf.dirSrc
               }
             },
             {
               loader: 'postcss-loader',
               options: {
-                sourceMap: IS_DEV ? true : 'inline',
+                sourceMap: IS_DEV,
                 plugins: [
                   autoprefixer({browsers: ['last 3 versions', 'iOS 9']}),
-                ]
-              }
+                ],
+              },
             },
             {
               loader: 'sass-loader',
               options: {
-                sourceMap: IS_DEV ? true : 'inline',
-                data: '$prefix: "' + config.cssPrefix + '";',
+                sourceMap: IS_DEV,
               },
             }],
           // use style-loader in development
           fallback: {
             loader: 'style-loader',
-            options: {
-              singleton: true,
-              convertToAbsoluteUrls: true
-            }
           },
+          publicPath: '/'
         }),
       },
       // IMAGES
       {
-        test: /\.(gif|png|jpe?g|svg)/,
+        test: /\.(gif|png|jpe?g)/,
         loader: 'file-loader',
+        include: conf.dirSrc,
         options: {
           name: '[name].[ext]',
           outputPath: './images/',
@@ -103,6 +104,7 @@ module.exports = {
       {
         test: /\.(ttf|eot|woff|woff2|svg)/,
         loader: 'file-loader',
+        include: conf.dirSrc,
         options: {
           name: '[name].[ext]',
           outputPath: './fonts/',
@@ -111,13 +113,6 @@ module.exports = {
     ],
   },
   plugins: [
-    new CopyWebpackPlugin([
-      {
-        from: './src/assets/',
-        to: './',
-        ignore: ['*.scss'],
-      },
-    ]),
     new webpack.DefinePlugin({
       IS_DEV: IS_DEV,
     }),
@@ -126,12 +121,14 @@ module.exports = {
       jQuery: 'jquery',
       'window.jQuery': 'jquery',
     }),
-    extractSass,
+    new ExtractTextPlugin({
+      filename: 'styles/[name].css',
+      disable: IS_DEV,
+    }),
     ...generateHTMLPlugins(),
-
+    new HtmlWebpackInlineSVGPlugin(),
   ],
   stats: {
     colors: true,
   },
-  devtool: 'eval',
 };
