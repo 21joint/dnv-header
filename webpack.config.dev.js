@@ -7,7 +7,7 @@ module.exports = merge(webpackConfig, {
   devtool: 'eval',
   devServer: {
     watchContentBase: true,
-    port: 7777,
+    port: 2100,
     open: true
   }
 });
